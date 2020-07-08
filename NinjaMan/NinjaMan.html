@@ -1,0 +1,183 @@
+<html>
+
+<head>
+    <title> NinjaMan </title>
+    <style type = "text/css">
+
+        * {
+            margin: 0;
+            padding: 0;
+         }
+        .row {
+         line-height: 0; 
+         } 
+        .wall {
+            background-color: blue;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+        }
+        .blank {
+            background-color: black;
+            height: 40px;
+            width: 40px;
+            display: inline-block; 
+        }
+        .sushi {
+            background-color: black;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            background-image: url('imgs/sushi.png');
+            background-size: contain;
+        }
+        .onigiri {
+            background-color: black;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            background-image: url('imgs/onigiri.png');
+            background-size: contain;
+        }
+        #ninjaman {
+            background-color: black;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            background-image: url('imgs/ninja.gif');
+            background-size: contain;
+            position: absolute;
+        }
+        #enemy {
+            background-color: black;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            background-image: url('imgs/bluey.gif');
+            background-size: contain;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id = "world"></div>
+
+    <div id="ninjaman"></div>
+
+    <div id='enemy'></div>
+
+</body>
+
+<script type="text/javascript">
+
+    var map = [ 
+        [1,1,1,1,1],
+        [1,0,2,2,1],
+        [1,2,1,2,1],
+        [1,2,2,2,1],
+        [1,2,1,2,1],
+        [1,2,2,2,1],
+        [1,2,1,2,1],
+        [1,2,2,3,1],
+        [1,2,3,2,1],
+        [1,2,2,2,1],
+        [1,2,1,2,1],
+        [1,2,3,2,1],
+        [1,1,1,1,1],
+    ];  // Need to randomly generate 
+    
+    var mapDict = {
+        0: 'blank',
+        1: 'wall',
+        2: 'sushi',
+        3: 'onigiri'  
+    } 
+
+    var score = 0;
+    console.log("score= "+score);
+
+    function drawWorld() {
+        output = "";
+
+        for (var row = 0; row < map.length; row++) {
+            output += "<div class = 'row'>"
+            for (var x = 0; x < map[row].length; x++) {
+                output += "<div class = '" + mapDict[map[row][x]] + "'></div>" // by using getElementById I can assign a value to wall, sushi, blank, and onigri
+            }
+            output += "</div>"  
+        }
+
+        document.getElementById('world').innerHTML = output;
+    }
+    drawWorld();
+
+    var ninjaman = {
+        x: 1,
+        y: 1
+    }
+
+    function drawNinjaMan() {
+        document.getElementById('ninjaman').style.top = ninjaman.y * 40 + 'px';
+        document.getElementById('ninjaman').style.left = ninjaman.x * 40 + 'px';
+    }
+    drawNinjaMan();
+
+    var enemy = {
+        x: 4,
+        y: 6
+    }
+
+    function drawEnemy() {
+        
+    }
+
+    document.onkeydown = function(e) {
+        if (e.keyCode == 37) {  //LEFT
+            if (map[ninjaman.y][ninjaman.x - 1] != 1) {
+              ninjaman.x--;  
+            }
+        }
+        if (e.keyCode == 39) {  //RIGHT
+            if (map[ninjaman.y][ninjaman.x + 1] != 1) {
+              ninjaman.x++;  
+            }
+        }
+        if (e.keyCode == 38) {  //UP
+            if (map[ninjaman.y - 1][ninjaman.x] != 1) {
+                 ninjaman.y--;
+            } 
+        }
+        if (e.keyCode == 40) {  //DOWN
+            if (map[ninjaman.y + 1][ninjaman.x] != 1) {
+               ninjaman.y++; 
+            }
+        }
+        if (map[ninjaman.y][ninjaman.x] === 2) {
+            map[ninjaman.y][ninjaman.x] = 0;
+            score += 10;
+            console.log("score= "+score);
+        }
+        else if (map[ninjaman.y][ninjaman.x] === 3) {
+            map[ninjaman.y][ninjaman.x] = 0;
+            score += 5;
+            console.log("score= "+score);
+        }
+        
+        drawNinjaMan();
+        drawWorld();
+    }
+
+
+    // I need to figure out how to keep score and bring in the onigiri 
+    // Sushi = 10pts and Onigri = 5pts
+
+    //Generate a random map
+    // Create ghosts that chase ninjaman
+    //Give ninjaman 3 lives
+    
+
+</script>
+
+</html>

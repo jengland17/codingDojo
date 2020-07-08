@@ -1,1 +1,2 @@
-# CodingDojo
+i# CodingDojo
+joshs first commit

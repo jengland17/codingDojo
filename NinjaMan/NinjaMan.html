@@ -72,28 +72,31 @@
 
 <script type="text/javascript">
 
+function random(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;   
+    }
+
     var map = [ 
-        [1,1,1,1,1],
-        [1,0,2,2,1],
-        [1,2,1,2,1],
-        [1,2,2,2,1],
-        [1,2,1,2,1],
-        [1,2,2,2,1],
-        [1,2,1,2,1],
-        [1,2,2,3,1],
-        [1,2,3,2,1],
-        [1,2,2,2,1],
-        [1,2,1,2,1],
-        [1,2,3,2,1],
-        [1,1,1,1,1],
-    ];  // Need to randomly generate 
+        [0,0,0,0,0,0,0,0,0,0],
+        [0,1,random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),0],
+        [0,random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),0],
+        [0,random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),0],
+        [0,random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),0],
+        [0,random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),0],
+        [0,random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),0],
+        [0,random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),0],
+        [0,random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),0],
+        [0,0,0,0,0,0,0,0,0,0]
+    ];  // Randomly generates but is not always 
+        //sometimes ninjaman gets stuck between walls
     
     var mapDict = {
-        0: 'blank',
-        1: 'wall',
+        0: 'wall',
+        1: 'blank',
         2: 'sushi',
         3: 'onigiri'  
     } 
+    // kjblkjbkj
 
     var score = 0;
     console.log("score= "+score);
@@ -129,9 +132,11 @@
         y: 6
     }
 
-    function drawEnemy() {
-        
-    }
+    function drawEnemy(){
+        document.getElementById('enemy').style.top = enemy.y * 40 + 'px';
+        document.getElementById('enemy').style.left = enemy.x * 40 + 'px';
+      }
+      drawEnemy();
 
     document.onkeydown = function(e) {
         if (e.keyCode == 37) {  //LEFT

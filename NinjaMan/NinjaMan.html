@@ -87,8 +87,7 @@ function random(min, max) {
         [0,random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),0],
         [0,random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),random(0,3),0],
         [0,0,0,0,0,0,0,0,0,0]
-    ];  // Randomly generates but is not always 
-        //sometimes ninjaman gets stuck between walls
+    ];  
     
     var mapDict = {
         0: 'wall',
@@ -96,10 +95,12 @@ function random(min, max) {
         2: 'sushi',
         3: 'onigiri'  
     } 
-    // kjblkjbkj
 
     var score = 0;
-    console.log("score= "+score);
+    console.log("score: ", score);
+
+    var lives = 3;
+    console.log("Lives: ", lives); 
 
     function drawWorld() {
         output = "";
@@ -132,53 +133,61 @@ function random(min, max) {
         y: 6
     }
 
-    function drawEnemy(){
+    function drawEnemy() {
         document.getElementById('enemy').style.top = enemy.y * 40 + 'px';
         document.getElementById('enemy').style.left = enemy.x * 40 + 'px';
       }
       drawEnemy();
 
+    function moveEnemy() {
+        
+    }
+
     document.onkeydown = function(e) {
+        var wall = 0;
+        var moveNinjaManLeft = map[ninjaman.y][ninjaman.x - 1];
+        var moveNinjaManRight = map[ninjaman.y][ninjaman.x + 1];
+        var moveNinjaManDown = map[ninjaman.y + 1][ninjaman.x];
+        var moveNinjamanUp = map[ninjaman.y - 1][ninjaman.x];
+        
+
         if (e.keyCode == 37) {  //LEFT
-            if (map[ninjaman.y][ninjaman.x - 1] != 1) {
+            if (moveNinjaManLeft != wall) {
               ninjaman.x--;  
             }
         }
         if (e.keyCode == 39) {  //RIGHT
-            if (map[ninjaman.y][ninjaman.x + 1] != 1) {
+            if (moveNinjaManRight != wall) {
               ninjaman.x++;  
             }
         }
         if (e.keyCode == 38) {  //UP
-            if (map[ninjaman.y - 1][ninjaman.x] != 1) {
+            if (map[ninjaman.y - 1][ninjaman.x] != wall) {
                  ninjaman.y--;
             } 
         }
         if (e.keyCode == 40) {  //DOWN
-            if (map[ninjaman.y + 1][ninjaman.x] != 1) {
+            if (moveNinjaManDown != wall) {
                ninjaman.y++; 
             }
         }
         if (map[ninjaman.y][ninjaman.x] === 2) {
-            map[ninjaman.y][ninjaman.x] = 0;
+            map[ninjaman.y][ninjaman.x] = 1;
             score += 10;
             console.log("score= "+score);
         }
         else if (map[ninjaman.y][ninjaman.x] === 3) {
-            map[ninjaman.y][ninjaman.x] = 0;
+            map[ninjaman.y][ninjaman.x] = 1;
             score += 5;
             console.log("score= "+score);
         }
         
         drawNinjaMan();
         drawWorld();
-    }
+    } 
 
 
-    // I need to figure out how to keep score and bring in the onigiri 
-    // Sushi = 10pts and Onigri = 5pts
-
-    //Generate a random map
+     
     // Create ghosts that chase ninjaman
     //Give ninjaman 3 lives
     

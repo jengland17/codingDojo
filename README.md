@@ -1,2 +1,1 @@
-i# CodingDojo
-joshs first commit
+NinjaMan Challenge 

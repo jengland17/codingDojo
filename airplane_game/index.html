@@ -1,20 +1,95 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Airplane Game</title>
 </head>
 <body>
 	<style type="text/css">
-
+		#ocean {
+			background-image: url("ocean.jpg");
+			width: 900px;
+			height: 700px;
+		}
+		.player {
+			background-image: url("player.png");
+			width: 70px;
+			height: 75px;
+			position: absolute;
+		}
+		.enemy {
+			background-image: url("enemy.png");
+			width: 70px;
+			height: 75px;
+			position: absolute; 
+		}
 	</style>
 
+	<div id="ocean">
 
+		<div id="player"></div>
+
+		<div id="enemy">
+			/* The enemies are drawn here */ 
+		</div>
+
+	</div>
 
 
 
 	<script type="text/javascript">
 	
+		var player = {
+			left: 450,
+			top: 620
+		}
+
+		var enemy = [
+			{left: 350, top: 200},
+			{left: 450, top: 200},
+			{left: 550, top: 200},
+			{left: 250, top: 200},
+			{left: 350, top: 300},
+			{left: 450, top: 300}
+		]
+
+		function drawPlayer() {
+			content = "<div class='player' style='left:"+player.left+"px; top:"+player.top+"px'></div>"
+
+			document.getElementById("player").innerHTML = content;
+		}
+
+		drawPlayer();
+
+		function drawEnemy() {
+			content = "";
+			for (var idx = 0; idx < enemy.length; idx++){
+				content += "<div class='enemy' style='left:"+enemy[idx].left+"px; top:"+enemy[idx].top+"px'></div>"
+			}
+			document.getElementById("enemy").innerHTML = content;
+		}
+
+		drawEnemy(); 
+
+		document.onkeydown = function(e) {
+
+			if (e.keyCode == 37) { //LEFT
+				player.left = player.left - 10; 
+			} 
+			if (e.keyCode == 39) { // RIGHT
+				player.left = player.left + 10;
+			}
+			if (e.keyCode == 38) { // UP
+				player.top = player.top - 10;
+			}
+			if (e.keyCode == 40) { //DOWN
+				player.top = player.top + 10; 
+			}
+			drawPlayer();
+		}
+
+
 
 	</script>
+
 </body>
 </html>

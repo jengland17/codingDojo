@@ -140,7 +140,7 @@ function random(min, max) {
       drawEnemy();
 
     function moveEnemy() {
-        
+
     }
 
     document.onkeydown = function(e) {
@@ -148,7 +148,7 @@ function random(min, max) {
         var moveNinjaManLeft = map[ninjaman.y][ninjaman.x - 1];
         var moveNinjaManRight = map[ninjaman.y][ninjaman.x + 1];
         var moveNinjaManDown = map[ninjaman.y + 1][ninjaman.x];
-        var moveNinjamanUp = map[ninjaman.y - 1][ninjaman.x];
+        var moveNinjaManUp = map[ninjaman.y - 1][ninjaman.x];
         
 
         if (e.keyCode == 37) {  //LEFT
@@ -162,7 +162,7 @@ function random(min, max) {
             }
         }
         if (e.keyCode == 38) {  //UP
-            if (map[ninjaman.y - 1][ninjaman.x] != wall) {
+            if (moveNinjaManUp != wall) {
                  ninjaman.y--;
             } 
         }

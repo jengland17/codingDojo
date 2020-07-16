@@ -7,13 +7,11 @@
 	<style type="text/css">
 		#ocean {
 			background-image: url("ocean.jpg");
-			/*I could use background-color instead of image but I like the image provided and could not find a suitable image to replace it */
 			width: 900px;
 			height: 700px;
 		}
 		.player {
 			background-image: url("player.png");
-			/* I would replace the images here but I like the images that were provided */
 			width: 70px;
 			height: 75px;
 			position: absolute;
@@ -24,6 +22,14 @@
 			height: 75px;
 			position: absolute; 
 		}
+
+		.missile {
+			position: absolute;
+			background-color: yellow;
+			width: 2px;
+			height: 10px;
+		}
+
 	</style>
 
 	<div id="ocean">
@@ -31,6 +37,8 @@
 		<div id="player"></div>
 
 		<div id="enemy"></div>
+
+		<div id="missile"></div>
 
 	</div>
 
@@ -50,13 +58,13 @@
 			{left: 450, top: 300}
 		]
 
+		var missile = [];
+
 		function drawPlayer() {
 			content = "<div class='player' style='left:"+player.left+"px; top:"+player.top+"px'></div>"
 
 			document.getElementById("player").innerHTML = content;
 		}
-
-		drawPlayer();
 
 		function drawEnemy() {
 			content = "";
@@ -65,8 +73,27 @@
 			}
 			document.getElementById("enemy").innerHTML = content;
 		}
+ 
+		function drawMissile() {
+			content = "";
+			for (var idx = 0; idx < missile.length; idx++){
+				content += "<div class='missile' style='left:"+ missile[idx].left +"px; top:"+ missile[idx].top +"px'></div>"
+			}
+			document.getElementById("missile").innerHTML = content;
+		}
 
-		drawEnemy(); 
+		function moveMissile() {
+			for (var idx = 0; idx < missile.length; idx++) {
+				missile[idx].top = missile[idx].top - 4;
+			}
+		}
+
+		function moveEnemy(){
+			for (var idx = 0; idx < enemy.length; idx++) {
+				enemy[idx].top = enemy[idx].top + 1; 
+			}
+		}
+
 
 		document.onkeydown = function(e) {
 
@@ -82,10 +109,29 @@
 			if (e.keyCode == 40 && player.top <= 625) { //DOWN
 				player.top = player.top + 10; 
 			}
+			if (e.keyCode == 32) { // fire missile with sapce bar
+				missile.push({left: (player.left + 34), top: (player.top - 8)}) 
+
+				drawMissile();
+			}
+			
 			drawPlayer();
 		}
 
+		function gameLoop() {
 
+			drawPlayer();
+
+			moveEnemy();
+			drawEnemy();
+
+			moveMissile();
+			drawMissile();
+
+			setTimeout(gameLoop, 10);
+		}
+
+		gameLoop();
 
 	</script>
 

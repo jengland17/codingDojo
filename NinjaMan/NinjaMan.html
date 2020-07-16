@@ -140,8 +140,30 @@ function random(min, max) {
       drawEnemy();
 
     function moveEnemy() {
+        var moveNinjaManLeft = map[ninjaman.y][ninjaman.x - 1]; // LEFT
+        var moveNinjaManRight = map[ninjaman.y][ninjaman.x + 1]; // RIGHT
+        var moveNinjaManDown = map[ninjaman.y + 1][ninjaman.x]; // UP 
+        var moveNinjaManUp = map[ninjaman.y - 1][ninjaman.x]; //DOWN
 
+        if (moveNinjaManLeft) {
+            (map[enemy.y][enemy.x - 1] !== 0) 
+                enemy.x--;
+        }
+        if (moveNinjaManRight) {
+            (map[enemy.y][enemy.x + 1] !== 0) 
+                enemy.x++;  
+        }
+        if (moveNinjaManUp) {
+             (map[enemy.y - 1][enemy.x] !== 0)
+                enemy.y--;
+        }
+        if (moveNinjaManDown) {
+            (map[enemy.y + 1][enemy.x] !== 0) 
+                enemy.y++;
+        }
     }
+    
+    moveEnemy(); // The ghost most up,down,left,right but still goes through walls. 
 
     document.onkeydown = function(e) {
         var wall = 0;
@@ -176,17 +198,37 @@ function random(min, max) {
             score += 10;
             console.log("score= "+score);
         }
-        else if (map[ninjaman.y][ninjaman.x] === 3) {
+        if (map[ninjaman.y][ninjaman.x] === 3) {
             map[ninjaman.y][ninjaman.x] = 1;
             score += 5;
             console.log("score= "+score);
         }
+        if ((ninjaman.x === enemy.x) && (ninjaman.y === enemy.y)) {
+            lives -= 1;
+            console.log("lives= "+lives)
+        }
+        if (lives === 0) {
+            document.write("Game Over! </br> Your Score= "+score)
+        }
         
         drawNinjaMan();
+        drawEnemy(); 
         drawWorld();
     } 
 
+    function gameLoop() {
 
+        drawWorld();
+
+        drawNinjaMan();
+
+        drawEnemy();
+        moveEnemy(); 
+
+        setTimeout(gameLoop, 750);
+    }
+
+    gameLoop(); 
      
     // Create ghosts that chase ninjaman
     //Give ninjaman 3 lives

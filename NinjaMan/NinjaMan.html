@@ -139,7 +139,7 @@ function random(min, max) {
       }
       drawEnemy();
 
-    function moveEnemy() {
+   function moveEnemy() {
         var moveNinjaManLeft = map[ninjaman.y][ninjaman.x - 1]; // LEFT
         var moveNinjaManRight = map[ninjaman.y][ninjaman.x + 1]; // RIGHT
         var moveNinjaManDown = map[ninjaman.y + 1][ninjaman.x]; // UP 
@@ -161,9 +161,8 @@ function random(min, max) {
             (map[enemy.y + 1][enemy.x] !== 0) 
                 enemy.y++;
         }
-    }
-    
-    moveEnemy(); // The ghost most up,down,left,right but still goes through walls. 
+    } 
+    moveEnemy(); // The ghost move up,down,left,right but still goes through the walls. 
 
     document.onkeydown = function(e) {
         var wall = 0;
@@ -212,6 +211,7 @@ function random(min, max) {
         }
         
         drawNinjaMan();
+        moveEnemy(); 
         drawEnemy(); 
         drawWorld();
     } 
@@ -225,15 +225,13 @@ function random(min, max) {
         drawEnemy();
         moveEnemy(); 
 
-        setTimeout(gameLoop, 750);
+        setTimeout(gameLoop, 100);
     }
 
     gameLoop(); 
      
     // Create ghosts that chase ninjaman
-    //Give ninjaman 3 lives
     
-
 </script>
 
 </html>

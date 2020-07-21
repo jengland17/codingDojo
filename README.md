@@ -1,2 +1,1 @@
-NinjaMan Challenge 
-Airplane Challenge 
+Coding Dojo Assignments and Practice

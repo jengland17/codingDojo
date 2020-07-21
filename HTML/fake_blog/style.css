@@ -1,0 +1,60 @@
+#wrapper {
+    background-color: slategray;
+    width: auto;
+    margin: 20px auto;
+    padding: 20px; 
+}
+
+#title {
+    text-align: center;
+}
+
+#header {
+    background-color: steelblue;
+    margin: 20px auto;
+    padding: 20px;
+    border: 5px dashed darkgreen;
+}
+
+#list {
+    background-color: steelblue;
+    color: black;
+    margin: 20px auto;
+    padding: 20px;
+    border: 5px dotted darkgreen;
+}
+
+table {
+    background-color: steelblue;
+    margin: 20px auto; 
+    padding: 20px; 
+    border: 5px dashed darkgreen; 
+}
+
+thead {
+    text-decoration: underline;
+    text-align: center;
+}
+
+tbody {
+    text-align: center;
+}
+
+#survey {
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    font-size: 40px;
+}
+
+#suscribe {
+    margin: 20px auto;
+    padding: 20px;
+    font-size: 20px;
+}
+
+label {
+    margin: 20px auto;
+    padding: 20px;
+}
+

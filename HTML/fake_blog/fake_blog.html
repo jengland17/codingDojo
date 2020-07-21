@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta name="description" content="This is a story of a fake blog">
-        <title>Fake Blog</title>
-    </head>
+<head>
+    <meta name="description" content="This is a story of a fake blog">
+    <title>Fake Blog</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 
-    <body>
+<body>
 
-        <h1> Josh's Fake Blog </h1>
-        <h2> A little about me </h2>
-        <p> I have a degree in Psychology with an emphasis in early adolescence. I thought about becomeing a family counselor, but eneded up decding that was the path I did not want to take. Now I am focusing a programming. Some of my favorite things include soccer and reading </p>
+    <div id="wrapper">
 
-        <div>
-            <a href="https://en.wikipedia.org/wiki/Chelsea_F.C.">A wikilink to my favorite soccer club</a>
-            <br>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSgyrOX_wkc_gc_04w1CMUfaBSemDpMjp3q5w&usqp=CAU"> 
+        <div id="header">
+
+            <h1 id="title"> Josh's Fake Blog </h1>
+            <h2> A little about me </h2>
+            <p> This is such a fascinating blog. I can not think of a better one than this. </p>
+
         </div>
 
-        <h2> A random list </h2>
+        
+        <a href="">A link to something magical</a>
+        
+        
+        <div id="list">
 
-        <ul>
-            <li>soccer</li>
-            <li>family</li>
-            <li>reading</li>
-            <li>friends</li>
-            <li>coding</li>
-        </ul>
+            <h2> A random list of random stuff </h2>
 
-        <br>
+            <ul>
+                <li>sports</li>
+                <li>food</li>
+                <li>jokes</li>
+                <li>friends</li>
+                <li>coding</li>
+            </ul>
+
+        </div>
+    
 
         <table>
             <thead>
@@ -58,7 +66,7 @@
         </table>
 
         <form>
-            <p> A short survey </p>
+            <p id="survey"> A short survey </p>
 
             <label for="first_name">First Name:</label>
             <input type="text" id="first_name" name="first_name">
@@ -69,16 +77,23 @@
             <label for="email">Email:</label>
             <input type="email" id="email" name="email">
 
-            <label for="yes">Would you like to suscribe</label>
-            <input type="radio" id="yes" name="yes">
+            <div id="suscribe">
 
-            <br>
+                <p> Would you like to suscribe </p>
 
-            <label for="gender">Select your gender:</label>
+                <label for="yes"> Would you like to Suscribe: Yes </label>
+                <input type="radio" id="yes" name="yes">
+
+                <label for="no"> No </label>
+                <input type="radio" id="no" name="no">
+
+            </div>
+
+            <label for="gender"> Select your gender: </label>
             <select id="gender" name="gender">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="decline">Prefer not to answer</option>
+                <option value="male"> Male </option>
+                <option value="female"> Female </option>
+                <option value="decline"> Prefer not to answer </option>
             </select>
 
             <p> Favorite Sports: </p>
@@ -95,14 +110,13 @@
             <label for="favorite">Others</label>
             <input type="checkbox" id="favorite" name="favorite">
 
-            <br>
 
             <input type="submit" value="Click to Submit">
 
         </form>
+    </div>
 
-
-    </body>
+</body>
 
 
 

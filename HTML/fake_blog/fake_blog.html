@@ -15,13 +15,14 @@
 
             <h1 id="title"> Josh's Fake Blog </h1>
             <h2> A little about me </h2>
-            <p> This is such a fascinating blog. I can not think of a better one than this. </p>
+            <p> This is such a fascinating blog. I can not think of a better one than this. Also I could not decide on an image so I decided to put a soccer ball. </p>
 
         </div>
 
         
         <a href="">A link to something magical</a>
-        
+        <br>
+        <img src="soccer.png" alt="Soccer Ball">
         
         <div id="list">
 
@@ -68,20 +69,22 @@
         <form>
             <p id="survey"> A short survey </p>
 
-            <label for="first_name">First Name:</label>
-            <input type="text" id="first_name" name="first_name">
+            <div id="name_email">
 
-            <label for="last_name">Last Name:</label>
-            <input type="text" id="last_name" name="last_name">
+                <label for="first_name"> First Name: </label>
+                <input type="text" id="first_name" name="first_name">
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
+                <label for="last_name"> Last Name: </label>
+                <input type="text" id="last_name" name="last_name">
+
+                <label for="email"> Email: </label>
+                <input type="email" id="email" name="email">
+            </div>
 
             <div id="suscribe">
 
-                <p> Would you like to suscribe </p>
-
-                <label for="yes"> Would you like to Suscribe: Yes </label>
+                <label>Would you like to suscribe</label>
+                <label for="yes"> Yes </label>
                 <input type="radio" id="yes" name="yes">
 
                 <label for="no"> No </label>
@@ -89,31 +92,40 @@
 
             </div>
 
-            <label for="gender"> Select your gender: </label>
-            <select id="gender" name="gender">
-                <option value="male"> Male </option>
-                <option value="female"> Female </option>
-                <option value="decline"> Prefer not to answer </option>
-            </select>
+            <div id="select">
 
-            <p> Favorite Sports: </p>
+                <label for="gender"> Select your gender: </label>
+                <select id="gender" name="gender">
+                    <option value="male"> Male </option>
+                    <option value="female"> Female </option>
+                    <option value="decline"> Prefer not to answer </option>
+                </select>
 
-            <label for="favorite">Soccer</label>
-            <input type="checkbox" id="favorite" name="favorite">
+            </div>
 
-            <label for="favorite">Football</label>
-            <input type="checkbox" id="favorite" name="favorite">
+            <div id="sports">
+            
+                <label> Favorite Sports: </label>
+                <label for="favorite">Soccer</label>
+                <input type="checkbox" id="favorite" name="favorite">
 
-            <label for="favorite">Basketball</label>
-            <input type="checkbox" id="favorite" name="favorite">
+                <label for="favorite">Football</label>
+                <input type="checkbox" id="favorite" name="favorite">
 
-            <label for="favorite">Others</label>
-            <input type="checkbox" id="favorite" name="favorite">
+                <label for="favorite">Basketball</label>
+                <input type="checkbox" id="favorite" name="favorite">
 
+                <label for="favorite">Others</label>
+                <input type="checkbox" id="favorite" name="favorite">
 
-            <input type="submit" value="Click to Submit">
+            </div>
+
+            <div id="submit">
+                <input type="submit" value="Click to Submit">
+            </div>
 
         </form>
+
     </div>
 
 </body>

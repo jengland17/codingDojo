@@ -1,5 +1,5 @@
 #wrapper {
-    background-color: slategray;
+    background-image: linear-gradient( mediumslateblue, rgb(18, 121, 206), blue); 
     width: auto;
     margin: 20px auto;
     padding: 20px; 
@@ -10,25 +10,44 @@
 }
 
 #header {
-    background-color: steelblue;
+    background-color: mediumslateblue;
     margin: 20px auto;
     padding: 20px;
-    border: 5px dashed darkgreen;
+    border: 5px ridge red;
+    font-family: fantasy;
+}
+
+a {
+    text-align: center;
+    font-size: 30px;
+    margin: 20px;
+    padding: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
 }
 
 #list {
-    background-color: steelblue;
+    background-color: mediumslateblue;
     color: black;
     margin: 20px auto;
     padding: 20px;
-    border: 5px dotted darkgreen;
+    border: 5px ridge red;
+    display: inline-block;
+    margin: 20px 40px 10px 550px;
+    font-style: italic;
+}
+
+ul {
+    list-style-position: inside;
 }
 
 table {
-    background-color: steelblue;
+    background-color: mediumslateblue;
     margin: 20px auto; 
     padding: 20px; 
-    border: 5px dashed darkgreen; 
+    border: 5px ridge red; 
+    display: inline-block;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 thead {
@@ -38,6 +57,15 @@ thead {
 
 tbody {
     text-align: center;
+}
+
+form {
+    background-color: mediumslateblue;
+    border-radius: 100px; 
+    border: 5px ridge red; 
+    margin: 30px 0px 0px 0px;
+    padding: 0px 0px 20px 0px;
+    font-family: fantasy;
 }
 
 #survey {
@@ -51,10 +79,46 @@ tbody {
     margin: 20px auto;
     padding: 20px;
     font-size: 20px;
+    text-align: center;
 }
+
 
 label {
     margin: 20px auto;
     padding: 20px;
+}
+
+#name_email {
+    text-align: center;
+}
+
+#favorite {
+    margin: 20px auto;
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+
+}
+
+#sports {
+    margin: 20px auto;
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#submit {
+    text-align: center;
+}
+
+#select {
+    text-align: center;
+}
+
+img {
+    border-radius: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
